@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saad2272 | Freelance Video Editor & Social Media Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 4px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* NEW VIDEO CONTAINER STYLES FROM THE NEW WEBSITE */
+        .shorts-container {
+            position: relative;
+            width: 100%;
+            padding-top: 177.77%; /* 9:16 Aspect Ratio */
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .shorts-container:hover {
+            border-color: #6366f1;
+            transform: translateY(-5px);
+        }
+        
+        .shorts-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease-out;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            animation: blob-move 20s ease-in-out infinite;
+        }
+        
+        @keyframes blob-move {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(30px, 50px) scale(1.05); }
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .demo-badge {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+        }
+        
+        /* NEW STYLES FOR DEMO CARDS */
+        .demo-card {
+            transition: all 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .instagram-reel-badge {
+            background: linear-gradient(45deg, #833AB4, #E1306C, #FCAF45);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a2e',
+                            600: '#252540',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold gradient-text">Saad2272</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white transition">About</a>
+                    <a href="#services" class="nav-link text-gray-300 hover:text-white transition">Services</a>
+                    <a href="#portfolio" class="nav-link text-gray-300 hover:text-white transition">Portfolio</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-white transition">Skills</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white transition">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#about" class="block text-gray-300 hover:text-white transition">About</a>
+                <a href="#services" class="block text-gray-300 hover:text-white transition">Services</a>
+                <a href="#portfolio" class="block text-gray-300 hover:text-white transition">Portfolio</a>
+                <a href="#skills" class="block text-gray-300 hover:text-white transition">Skills</a>
+                <a href="#contact" class="block text-gray-300 hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden bg-grid">
+        <!-- Background Blobs -->
+        <div class="blob w-96 h-96 bg-indigo-600 top-20 -left-48"></div>
+        <div class="blob w-80 h-80 bg-purple-600 bottom-20 -right-40"></div>
+        <div class="blob w-64 h-64 bg-pink-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 py-32 relative z-10">
+            <div class="text-center">
+                <!-- REMOVED THE FLOATING S LOGO CONTAINER -->
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Hi, I'm <span class="gradient-text">Saad</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 mb-4">
+                    A Beginner Freelance Video Editor & Social Media Manager
+                </p>
+                <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
+                    I create engaging short-form and long-form videos and help manage social media content for online platforms.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#portfolio" class="gradient-bg px-8 py-4 rounded-full font-semibold hover:opacity-90 transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                        <i class="fas fa-play"></i> View My Work
+                    </a>
+                    <a href="#contact" class="glass-card px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition transform hover:scale-105 inline-flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+                
+                <div class="mt-16 animate-bounce">
+                    <a href="#about" class="text-gray-500 hover:text-white transition">
+                        <i class="fas fa-chevron-down text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <span class="text-indigo-400 font-semibold mb-2 block">ABOUT ME</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        Getting Started in <span class="gradient-text">Content Creation</span>
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Hey there! I'm Saad, a beginner freelance video editor who's genuinely passionate about creating engaging content. I'm at the start of my journey, and I find joy in every project I work on — whether it's a quick TikTok edit or a longer YouTube video.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        I spend my time learning new editing techniques, understanding what makes content go viral, and exploring the ever-changing world of social media. I'm particularly interested in video editing, social media management, and the basics of digital marketing.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        While I'm still building my experience, I bring enthusiasm, dedication, and a fresh perspective to every project. I believe in honest communication and delivering quality work that helps your content stand out.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/saad___2272/" target="_blank" class="glass-card p-3 rounded-full hover:bg-white/10 transition">
+                            <i class="fab fa-instagram text-xl text-pink-500"></i>
+                        </a>
+                        <a href="mailto:saaduddin227297@gmail.com" class="glass-card p-3 rounded-full hover:bg-white/10 transition">
+                            <i class="fas fa-envelope text-xl text-indigo-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 relative">
+                    <div class="glass-card rounded-2xl p-8 hover-lift">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">10+</div>
+                                <div class="text-gray-400 text-sm">Demo Projects</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                                <div class="text-gray-400 text-sm">Dedication</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">24/7</div>
+                                <div class="text-gray-400 text-sm">Learning</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">∞</div>
+                                <div class="text-gray-400 text-sm">Passion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-dark-800 relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-indigo-400 font-semibold mb-2 block">WHAT I OFFER</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    My <span class="gradient-text">Services</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Here's what I can help you with. As a beginner, I focus on quality over quantity and always aim to exceed expectations.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card glass-card rounded-2xl p-6 hover-lift group">
+                    <div class="service-icon w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-video text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Short-Form Video Editing</h3>
+                    <p class="text-gray-400 text-sm">
+                        Creating engaging Reels, TikToks, and YouTube Shorts that capture attention and keep viewers watching.
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card glass-card rounded-2xl p-6 hover-lift group">
+                    <div class="service-icon w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-film text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Long-Form Video Editing</h3>
+                    <p class="text-gray-400 text-sm">
+                        Basic long-form video editing for YouTube videos and other platforms. Still learning but improving every day!
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card glass-card rounded-2xl p-6 hover-lift group">
+                    <div class="service-icon w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-closed-captioning text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Subtitles & Captions</h3>
+                    <p class="text-gray-400 text-sm">
+                        Adding engaging subtitles and captions that make your content accessible and more engaging for all viewers.
+                    </p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card glass-card rounded-2xl p-6 hover-lift group">
+                    <div class="service-icon w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-share-nodes text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Social Media Support</h3>
+                    <p class="text-gray-400 text-sm">
+                        Basic social media content support including post scheduling ideas and content optimization tips.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section - REPLACED WITH NEW DEMO VIDEOS CODE -->
+    <section id="portfolio" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-indigo-400 font-semibold mb-2 block">MY WORK</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Portfolio <span class="gradient-text">Showcase</span>
+                </h2>
+                <div class="inline-block demo-badge px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-info-circle mr-2"></i>Sample / Demo Work
+                </div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    These are sample and demo projects I've created to demonstrate my editing style and skills. Each piece represents my learning journey and passion for content creation.
+                </p>
+            </div>
+            
+            <!-- Instagram Reels Grid - NEW CODE FROM THE OTHER WEBSITE -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                <!-- Demo 1 -->
+                <div class="demo-card glass-card rounded-2xl p-6 hover-lift">
+                    <div class="relative">
+                        <div class="demo-badge absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-semibold">
+                            Demo Work
+                        </div>
+                        <div class="shorts-container">
+                            <iframe src="https://www.instagram.com/reel/DS9SllbiH1M/embed" title="Demo 1" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2">Short-Form Content #1</h3>
+                        <p class="text-gray-400 text-sm mb-4">A sample short-form video showcasing dynamic editing and transitions.</p>
+                        <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="text-xs bg-indigo-600/30 text-indigo-300 px-2 py-1 rounded">Instagram Reel</span>
+                            <span class="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded">Demo</span>
+                        </div>
+                        <div class="instagram-reel-badge inline-flex">
+                            <i class="fab fa-instagram"></i>
+                            Instagram Reel
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 2 -->
+                <div class="demo-card glass-card rounded-2xl p-6 hover-lift">
+                    <div class="relative">
+                        <div class="demo-badge absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-semibold">
+                            Demo Work
+                        </div>
+                        <div class="shorts-container">
+                            <iframe src="https://www.instagram.com/reel/DS7gITaCFdk/embed" title="Demo 2" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2">Short-Form Content #2</h3>
+                        <p class="text-gray-400 text-sm mb-4">Another example of my editing style with engaging visuals and pacing.</p>
+                        <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="text-xs bg-indigo-600/30 text-indigo-300 px-2 py-1 rounded">Instagram Reel</span>
+                            <span class="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded">Demo</span>
+                        </div>
+                        <div class="instagram-reel-badge inline-flex">
+                            <i class="fab fa-instagram"></i>
+                            Instagram Reel
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 3 -->
+                <div class="demo-card glass-card rounded-2xl p-6 hover-lift">
+                    <div class="relative">
+                        <div class="demo-badge absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-semibold">
+                            Demo Work
+                        </div>
+                        <div class="shorts-container">
+                            <iframe src="https://www.instagram.com/reel/DQyF9dQCL3P/embed" title="Demo 3" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2">Short-Form Content #3</h3>
+                        <p class="text-gray-400 text-sm mb-4">Demonstrating creative transitions and attention-grabbing edits.</p>
+                        <div class="flex flex-wrap gap-2 justify-center mb-4">
+                            <span class="text-xs bg-indigo-600/30 text-indigo-300 px-2 py-1 rounded">Instagram Reel</span>
+                            <span class="text-xs bg-purple-600/30 text-purple-300 px-2 py-1 rounded">Demo</span>
+                        </div>
+                        <div class="instagram-reel-badge inline-flex">
+                            <i class="fab fa-instagram"></i>
+                            Instagram Reel
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-500 text-sm">
+                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                    More projects coming soon as I continue learning and growing!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-dark-800 relative">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-indigo-400 font-semibold mb-2 block">EXPERTISE</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Skills & <span class="gradient-text">Tools</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Here are the skills I'm developing and the tools I work with on a daily basis.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Skills -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center gap-3">
+                        <i class="fas fa-chart-line gradient-text"></i> Skills
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Video Editing</span>
+                                <span class="text-indigo-400">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress gradient-bg" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Social Media Management</span>
+                                <span class="text-indigo-400">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress gradient-bg" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Digital Marketing Basics</span>
+                                <span class="text-indigo-400">50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress gradient-bg" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Content Optimization</span>
+                                <span class="text-indigo-400">55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress gradient-bg" style="width: 55%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center gap-3">
+                        <i class="fas fa-tools gradient-text"></i> Tools I Use
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-dark-700 rounded-xl p-4 flex items-center gap-4 hover:bg-dark-600 transition">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                <span class="font-bold text-lg">Cc</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold">CapCut</div>
+                                <div class="text-gray-400 text-sm">Primary Editor</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-dark-700 rounded-xl p-4 flex items-center gap-4 hover:bg-dark-600 transition">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                <span class="font-bold text-lg">C</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Canva</div>
+                                <div class="text-gray-400 text-sm">Graphics</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-dark-700 rounded-xl p-4 flex items-center gap-4 hover:bg-dark-600 transition">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                                <span class="font-bold text-lg">Pr</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Premiere Pro</div>
+                                <div class="text-gray-400 text-sm">Learning</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-dark-700 rounded-xl p-4 flex items-center gap-4 hover:bg-dark-600 transition">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Social Platforms</div>
+                                <div class="text-gray-400 text-sm">All Major</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="blob w-96 h-96 bg-indigo-600 -top-48 -right-48"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-indigo-400 font-semibold mb-2 block">WHY CHOOSE ME</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Why Work <span class="gradient-text">With Me?</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card rounded-2xl p-6 text-center hover-lift">
+                    <div class="w-16 h-16 mx-auto gradient-bg rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Honest Communication</h3>
+                    <p class="text-gray-400 text-sm">Clear and transparent communication throughout every project.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center hover-lift">
+                    <div class="w-16 h-16 mx-auto gradient-bg rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Willing to Learn</h3>
+                    <p class="text-gray-400 text-sm">Always improving my skills and open to feedback and new ideas.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center hover-lift">
+                    <div class="w-16 h-16 mx-auto gradient-bg rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-dollar-sign text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Beginner-Friendly Pricing</h3>
+                    <p class="text-gray-400 text-sm">Affordable rates that work for small businesses and creators.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center hover-lift">
+                    <div class="w-16 h-16 mx-auto gradient-bg rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-heart text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Passion for Content</h3>
+                    <p class="text-gray-400 text-sm">Genuine enthusiasm for creating engaging content that stands out.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-dark-800 relative">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-indigo-400 font-semibold mb-2 block">GET IN TOUCH</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Have a project in mind or just want to say hi? I'd love to hear from you! Feel free to reach out through any of the channels below.
+                </p>
+            </div>
+            
+            <div class="glass-card rounded-2xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <a href="mailto:saaduddin227297@gmail.com" class="flex items-center gap-4 text-gray-300 hover:text-white transition group">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Email</div>
+                                    <div>saaduddin227297@gmail.com</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://www.instagram.com/saad___2272/" target="_blank" class="flex items-center gap-4 text-gray-300 hover:text-white transition group">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500">Instagram</div>
+                                    <div>@saad___2272</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-8 p-4 bg-dark-700 rounded-xl">
+                            <p class="text-gray-400 text-sm">
+                                <i class="fas fa-clock mr-2 text-indigo-400"></i>
+                                I typically respond within 24-48 hours
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <input type="text" placeholder="Your Name" required class="w-full bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" required class="w-full bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition">
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" rows="4" required class="w-full bg-dark-700 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full gradient-bg px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition transform hover:scale-[1.02]">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left">
+                    <span class="text-xl font-bold gradient-text">Saad2272</span>
+                    <p class="text-gray-500 text-sm mt-1">Beginner Freelance Video Editor & Social Media Manager</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="mailto:saaduddin227297@gmail.com" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/saad___2272/" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-6 pt-6 border-t border-white/5">
+                <p class="text-gray-600 text-sm">© 2026 Saad2272. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const animateSkills = () => {
+            skillBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    bar.style.width = bar.style.width;
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateSkills);
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = contactForm.querySelector('input[type="text"]').value;
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const message = contactForm.querySelector('textarea').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:saaduddin227297@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your message! Your email client will open to send the message.');
+            contactForm.reset();
+        });
+        
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-dark-900/90');
+            } else {
+                nav.classList.remove('bg-dark-900/90');
+            }
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Apply fade-in animation to sections
+        document.querySelectorAll('section > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
